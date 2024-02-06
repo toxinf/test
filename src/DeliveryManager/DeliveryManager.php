@@ -14,13 +14,13 @@ use Delivery\DeliveryService\DeliveryServiceInterface;
 class DeliveryManager {
 
 	/**
-	 * Привязывает сервис доставки к отправлению и устанавливает отправление в сервисе доставки
+	 * Привязывает отправление к сервису доставки
 	 *
 	 * @param Shipment $shipment Отправление
 	 * @param DeliveryServiceInterface $deliveryService Сервис доставки
 	 */
 
-	public function assignDeliveryServiceToShipment(Shipment $shipment, DeliveryServiceInterface $deliveryService): void
+	public function assignShipmentToService(Shipment $shipment, DeliveryServiceInterface $deliveryService): void
 	{
 		$deliveryService->setShipment($shipment);
 	}
