@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
 require_once __DIR__ . '/../src/DeliveryService/DeliveryServiceInterface.php';
 require_once __DIR__ . '/../src/DeliveryService/DeliveryServiceDataSourceInterface.php';
@@ -27,10 +27,10 @@ $shipment->setWeight(1.1);
 // расчёт быстрой доставки
 $fastService = new DeliveryServiceFast(new DeliveryServiceFastEmulate('https://example.com'));
 $deliveryManager = new DeliveryManager();
-$deliveryManager->assignDeliveryServiceToShipment($shipment, $fastService);
+$deliveryManager->assignShipmentToService($shipment, $fastService);
 echo $fastService->getDeliveryInfo() . '<br>';
 
 // расчёт медленной доставки
 $slowService = new DeliveryServiceSlow(new DeliveryServiceSlowEmulate('https://example.com'));
-$deliveryManager->assignDeliveryServiceToShipment($shipment, $slowService);
+$deliveryManager->assignShipmentToService($shipment, $slowService);
 echo $slowService->getDeliveryInfo() . '<br>';
